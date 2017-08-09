@@ -1,14 +1,21 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Ionic Blank
+      Quick Book
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card *ngFor="let office of offices" (click)="getRooms(office)" [ngClass]="{'active' : isSelectedOffice(office) }">
+      <ion-card-header>
+          {{ office }}
+      </ion-card-header>
+  </ion-card>
+
+  <ion-list>
+    <button ion-item *ngFor="let room of rooms" (click)="onRoomSelected(room)" (press)="setDefaultRoom(room)">
+      {{ room.name }} <span *ngIf="isdefaultRoom(room)">  default</span>
+    </button>
+  </ion-list>
 </ion-content>
