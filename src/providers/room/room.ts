@@ -22,7 +22,7 @@ export class RoomProvider {
   }
 
   getRoomStatus(room) {
-    let status = this.http.get(`${this.baseUrl}/${room.name}/status`);
+    let status = this.http.get(`${this.baseUrl}/rooms/${room.name}/status`);
     return status;
   }
 }

@@ -17,7 +17,7 @@ export class PreferencePage {
   public defaultRoom;
 
   constructor(public navCtrl: NavController, private roomProvider: RoomProvider, private storage: Storage) {
-    this.offices = this.getOffices();
+    this.getOffices();
     this.storage.get('defaultRoom').then((value) => this.defaultRoom = value);
   }
 
