@@ -20,4 +20,9 @@ export class RoomProvider {
     let repos = this.http.get(`${this.baseUrl}/offices`);
     return repos;
   }
+
+  getRoomStatus(room) {
+    let status = this.http.get(`${this.baseUrl}/${room.name}/status`);
+    return status;
+  }
 }
