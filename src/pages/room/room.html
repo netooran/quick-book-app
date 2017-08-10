@@ -6,7 +6,13 @@
 
 </ion-header>
 
-
 <ion-content padding>
-<button type="button" name="button" (click)="book()">Book</button>
+
+  <ng-template #bookedRoom>
+    <booked-room></booked-room>
+  </ng-template>
+  <ng-template #availableRoom>
+    <available-room></available-room>
+  </ng-template>
+  <div *ngIf="isAvailable();then availableRoom else bookedRoom;"></div>
 </ion-content>

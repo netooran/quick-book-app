@@ -7,17 +7,26 @@ import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 
 import { MyApp } from './app.component';
+
 import { HomePage } from '../pages/home/home';
 import { RoomPage } from '../pages/room/room';
 import { BookingPage } from '../pages/booking/booking';
+
+import { AvailableRoomComponent } from '../components/available-room/available-room';
+import { BookedRoomComponent } from '../components/booked-room/booked-room';
+
 import { RoomProvider } from '../providers/room/room';
+
+
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
     RoomPage,
-    BookingPage
+    BookingPage,
+    AvailableRoomComponent,
+    BookedRoomComponent
   ],
   imports: [
     BrowserModule,

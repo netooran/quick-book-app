@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
-import { BookingPage } from '../booking/booking';
-
 @Component({
   selector: 'page-room',
   templateUrl: 'room.html',
@@ -18,8 +16,8 @@ export class RoomPage {
     console.log('ionViewDidLoad RoomPage');
   }
 
-  book(){
-    this.nav.push(BookingPage, { room: this.room });
+  isAvailable(){
+    return true;
   }
 
 }
