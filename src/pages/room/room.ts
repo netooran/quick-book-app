@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams } from 'ionic-angular';
 
-@IonicPage()
+import { BookingPage } from '../booking/booking';
+
 @Component({
   selector: 'page-room',
   templateUrl: 'room.html',
@@ -9,12 +10,16 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 export class RoomPage {
   public room;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public nav: NavController, public navParams: NavParams) {
     this.room = navParams.get('room');
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad RoomPage');
+  }
+
+  book(){
+    this.nav.push(BookingPage, { room: this.room });
   }
 
 }

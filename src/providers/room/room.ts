@@ -8,7 +8,7 @@ export class RoomProvider {
   private baseUrl;
 
   constructor(public http: Http) {
-    this.baseUrl = 'http://10.134.124.106:4000';
+    this.baseUrl = 'http://localhost:4000';
   }
 
   getRooms(office) {

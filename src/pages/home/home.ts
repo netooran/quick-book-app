@@ -50,7 +50,7 @@ export class HomePage {
   }
 
   isdefaultRoom(room) {
-    return this.defaultRoom.name  === room.name;
+    return this.defaultRoom && this.defaultRoom.name  === room.name;
   }
 
 }

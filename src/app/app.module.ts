@@ -9,13 +9,15 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { RoomPage } from '../pages/room/room';
+import { BookingPage } from '../pages/booking/booking';
 import { RoomProvider } from '../providers/room/room';
 
 @NgModule({
   declarations: [
     MyApp,
     HomePage,
-    RoomPage
+    RoomPage,
+    BookingPage
   ],
   imports: [
     BrowserModule,
@@ -27,7 +29,8 @@ import { RoomProvider } from '../providers/room/room';
   entryComponents: [
     MyApp,
     HomePage,
-    RoomPage
+    RoomPage,
+    BookingPage
   ],
   providers: [
     StatusBar,
