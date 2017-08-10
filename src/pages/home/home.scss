@@ -1,5 +1,13 @@
 page-home {}
 
-.active {
-  border-bottom: 1px solid lightgreen;
+.logo {
+  width: 150px;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  bottom: 20%;
+  left: 0;
+  right: 0;
+  margin: auto;
+  text-align: center;
 }

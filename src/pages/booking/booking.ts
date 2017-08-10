@@ -14,7 +14,6 @@ export class BookingPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad BookingPage');
   }
 
 }

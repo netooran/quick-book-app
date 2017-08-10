@@ -9,6 +9,7 @@ import { IonicStorageModule } from '@ionic/storage';
 import { MyApp } from './app.component';
 
 import { HomePage } from '../pages/home/home';
+import { PreferencePage } from '../pages/preference/preference';
 import { RoomPage } from '../pages/room/room';
 import { BookingPage } from '../pages/booking/booking';
 
@@ -23,6 +24,7 @@ import { RoomProvider } from '../providers/room/room';
   declarations: [
     MyApp,
     HomePage,
+    PreferencePage,
     RoomPage,
     BookingPage,
     AvailableRoomComponent,
@@ -38,6 +40,7 @@ import { RoomProvider } from '../providers/room/room';
   entryComponents: [
     MyApp,
     HomePage,
+    PreferencePage,
     RoomPage,
     BookingPage
   ],

@@ -1,56 +1,28 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
-import { RoomProvider } from '../../providers/room/room';
-import { RoomPage } from '../room/room';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { Storage } from '@ionic/storage';
 
+import { PreferencePage } from '../preference/preference';
+import { RoomPage } from "../room/room";
+
+@IonicPage()
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html',
-  providers: [RoomProvider]
 })
 export class HomePage {
-  public offices;
-  public rooms;
-  public selectedOffice;
-  public defaultRoom;
 
-  constructor(private nav: NavController, private roomProvider: RoomProvider, private storage: Storage) {
-    this.offices = this.getOffices();
-    this.storage.get('defaultRoom').then((value) => this.defaultRoom = value);
+  constructor(public navCtrl: NavController, public navParams: NavParams, private storage: Storage) {
   }
 
-  getOffices() {
-    this.roomProvider.getOffices().subscribe(
-      data => this.offices = data.json(),
-      console.error
-    );
-  }
-
-  getRooms(office) {
-    this.selectedOffice = office;
-    this.roomProvider.getRooms(office).subscribe(
-      data => this.rooms = data.json(),
-      console.error
-    );
-  }
-
-  isSelectedOffice(office) {
-    return office === this.selectedOffice;
-  }
-
-  onRoomSelected(room) {
-    this.nav.push(RoomPage, { room: room });
-  }
-
-  setDefaultRoom(room) {
-    this.storage.set('defaultRoom', room);
-    this.defaultRoom = room;
-    console.log("Default room set to ", room);
-  }
-
-  isdefaultRoom(room) {
-    return this.defaultRoom && this.defaultRoom.name  === room.name;
+  ionViewDidLoad() {
+    setTimeout(() => {
+      this.storage.get('defaultRoom').then((room) => {
+        room
+          ? this.navCtrl.setRoot(RoomPage, { room: room })
+          : this.navCtrl.setRoot(PreferencePage);
+      });
+    }, 2000);
   }
 
 }

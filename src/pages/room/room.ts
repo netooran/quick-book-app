@@ -18,7 +18,6 @@ export class RoomPage {
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad RoomPage');
   }
 
   isAvailable() {
