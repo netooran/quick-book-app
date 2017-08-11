@@ -1,4 +1,6 @@
 <div>
   <h1 (click)="showPreference()">{{ room.name }}</h1>
   <h2>not available</h2>
+
+  <button ion-button round outline (click)="endMeeting()" *ngIf="isQuickMeet()">End</button>
 </div>

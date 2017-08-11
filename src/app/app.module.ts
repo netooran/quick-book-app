@@ -17,6 +17,7 @@ import { AvailableRoomComponent } from '../components/available-room/available-r
 import { BookedRoomComponent } from '../components/booked-room/booked-room';
 
 import { RoomProvider } from '../providers/room/room';
+import { ToastProvider } from '../providers/toast/toast';
 
 
 
@@ -48,7 +49,8 @@ import { RoomProvider } from '../providers/room/room';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    RoomProvider
+    RoomProvider,
+    ToastProvider
   ]
 })
 export class AppModule {}

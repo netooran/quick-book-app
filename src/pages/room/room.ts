@@ -34,9 +34,9 @@ export class RoomPage {
   }
 
   updateRoomStatus() {
-    return this.roomProvider.getRoomStatus(this.room).subscribe((data) => {
-      this.roomStatus = data.json();
-    });
+    return this.roomProvider
+      .getRoomStatus(this.room)
+      .subscribe((data) => this.roomStatus = data.json());
   }
 
 }

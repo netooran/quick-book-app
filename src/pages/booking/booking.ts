@@ -1,5 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, Keyboard } from 'ionic-angular';
+
+import { RoomProvider } from '../../providers/room/room';
+import { ToastProvider } from '../../providers/toast/toast';
+import { RoomPage } from '../room/room';
 
 @IonicPage()
 @Component({
@@ -8,12 +12,31 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class BookingPage {
   public room;
+  public durations = [5, 10, 15, 30];
+  public selectedDuration;
+  public employee;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public keyboard: Keyboard, private roomProvider: RoomProvider, private toast: ToastProvider) {
     this.room = navParams.get('room');
+    // keyboard.willShow();
   }
 
   ionViewDidLoad() {
+  }
+
+  book() {
+    console.log(this.room, this.selectedDuration, this.employee);
+    
+    this.roomProvider
+      .book(this.room, this.selectedDuration, this.employee)
+      .subscribe(data => {
+        this.toast.booked(this.room)
+        this.navCtrl.push(RoomPage, { room: this.room });
+      });
+  }
+
+  selectDuration(duration) {
+    this.selectedDuration = duration;
   }
 
 }

@@ -1,12 +1,18 @@
 <ion-header>
-
   <ion-navbar>
     <ion-title>Booking</ion-title>
   </ion-navbar>
-
 </ion-header>
 
-
 <ion-content padding>
-{{room.name}}
+  <h1> {{room.name}}</h1>
+
+  <ion-segment [(ngModel)]="times" color="primary">
+    <ion-segment-button *ngFor="let duration of durations" value="{{duration}}" (ionSelect)="selectDuration(duration)">
+      {{ duration }} min
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-input placeholder="Enter employee ID" [(ngModel)]="employee"></ion-input>
+  <button ion-button round outline (click)="book()">Book</button>
 </ion-content>
