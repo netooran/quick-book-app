@@ -24,9 +24,7 @@ export class BookingPage {
   ionViewDidLoad() {
   }
 
-  book() {
-    console.log(this.room, this.selectedDuration, this.employee);
-    
+  book() {    
     this.roomProvider
       .book(this.room, this.selectedDuration, this.employee)
       .subscribe(data => {
