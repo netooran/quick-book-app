@@ -1,5 +1,5 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, Keyboard } from 'ionic-angular';
+import { Component, ViewChild, ElementRef } from '@angular/core';
+import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
 import { RoomProvider } from '../../providers/room/room';
 import { ToastProvider } from '../../providers/toast/toast';
@@ -11,30 +11,30 @@ import { RoomPage } from '../room/room';
   templateUrl: 'booking.html',
 })
 export class BookingPage {
+
+  @ViewChild('empIdInput') myInput;
   public room;
   public durations = [5, 10, 15, 30];
-  public selectedDuration;
-  public employee;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public keyboard: Keyboard, private roomProvider: RoomProvider, private toast: ToastProvider) {
+  public booking = {
+    selectedDuration: this.durations[0].toString(),
+    employee: ''
+  };
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, private roomProvider: RoomProvider, private toast: ToastProvider) {
     this.room = navParams.get('room');
-    // keyboard.willShow();
   }
 
-  ionViewDidLoad() {
+  ionViewDidEnter() {
+    setTimeout(() => this.myInput.setFocus(), 0);
   }
 
-  book() {    
+  book() {
     this.roomProvider
-      .book(this.room, this.selectedDuration, this.employee)
+      .book(this.room, this.booking)
       .subscribe(data => {
         this.toast.booked(this.room)
         this.navCtrl.push(RoomPage, { room: this.room });
       });
   }
-
-  selectDuration(duration) {
-    this.selectedDuration = duration;
-  }
-
 }

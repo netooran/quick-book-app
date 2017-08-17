@@ -23,8 +23,8 @@ export class RoomProvider {
     return this.http.get(`${this.baseUrl}/rooms/${room.name}/status`);
   }
 
-  book(room, duration, employee) {
-    return this.http.post(`${this.baseUrl}/rooms/${room.name}/book`, { duration, employee });
+  book(room, formData) {
+    return this.http.post(`${this.baseUrl}/rooms/${room.name}/book`, formData);
   }
 
   cancel(room) {
