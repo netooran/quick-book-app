@@ -2,7 +2,7 @@ import { Component, ViewChild } from '@angular/core';
 import { Platform, NavController } from 'ionic-angular';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
-import {Idle, DEFAULT_INTERRUPTSOURCES} from '@ng-idle/core';
+import { Idle, DEFAULT_INTERRUPTSOURCES } from '@ng-idle/core';
 import { Storage } from '@ionic/storage';
 
 import { HomePage } from '../pages/home/home';
@@ -15,7 +15,7 @@ export class MyApp {
   rootPage: any = HomePage;
   @ViewChild('myNav') nav: NavController
 
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private idle: Idle,  private storage: Storage) {
+  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen, private idle: Idle, private storage: Storage) {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
@@ -28,13 +28,16 @@ export class MyApp {
     this.idle.watch();
   }
 
-  initIdle(){
+  initIdle() {
     this.idle.setIdle(5);
     this.idle.setTimeout(5);
     this.idle.setInterrupts(DEFAULT_INTERRUPTSOURCES);
     this.idle.onTimeout.subscribe(() => {
       this.storage.get('defaultRoom')
-        .then((room) => this.nav.setRoot(RoomPage, { room: room }));
+        .then((room) => {
+          if (this.nav.first().data.room.name !== room.name)
+            this.nav.setRoot(RoomPage, { room: room })
+        });
       this.reset();
     });
 

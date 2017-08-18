@@ -19,10 +19,6 @@ export class RoomPage {
     schedule.scheduleJob('*/1 * * * *', () => {
       this.updateRoomStatus();
     });
-
-  }
-
-  ionViewDidLoad() {
   }
 
   isAvailable() {
