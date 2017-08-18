@@ -1,3 +1,67 @@
 available-room {
+  .container {
+    width: 100%;
+    height: 100%;
+  }
+  font-family: 'Heiti SC';
 
+  .content-md {
+    background: url("../assets/images/taj_mahal_green.png") center;
+    background-size: cover;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .rocket {
+    opacity: 1;
+    font-size: x-large;
+  }
+
+  .shimmer {
+    text-align: center;
+    color: rgba(255,255,255,0.1);
+    background: -webkit-gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+    background: gradient(linear, left top, right top, from(#222), to(#222), color-stop(0.5, #fff));
+    background-size: 125px 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    animation-name: shimmer;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-color: #222;
+  }
+
+  @keyframes shimmer {
+    0% {
+      background-position: top left;
+    }
+
+    50% {
+      background-position: top right;
+    }
+
+    100% {
+      background-position: top left;
+    }
+  }
+
+  .heading {
+    color: #F8FCFF;
+    opacity: 0.75;
+    text-align: center;
+    font-size: 18vw;
+  }
+}
+
+ion-app.md [padding],
+ion-app.md [padding] .scroll-content {
+  padding: 0;
 }

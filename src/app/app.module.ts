@@ -50,9 +50,9 @@ import { ToastProvider } from '../providers/toast/toast';
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    { provide: ErrorHandler, useClass: IonicErrorHandler },
     RoomProvider,
     ToastProvider
   ]
 })
-export class AppModule {}
+export class AppModule { }

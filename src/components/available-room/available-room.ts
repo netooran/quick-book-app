@@ -9,8 +9,7 @@ import { BookingPage } from '../../pages/booking/booking';
 })
 export class AvailableRoomComponent extends RoomPage {
 
-  book() {
+  onSwipe() {
     this.nav.push(BookingPage, { room: this.room });
   }
-
 }

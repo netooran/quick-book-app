@@ -8,7 +8,7 @@ import { RoomPage } from '../room/room';
 @IonicPage()
 @Component({
   selector: 'page-booking',
-  templateUrl: 'booking.html',
+  templateUrl: 'booking.html'
 })
 export class BookingPage {
 

@@ -20,7 +20,7 @@ export class BookedRoomComponent extends RoomPage {
       .cancel(this.room)
       .subscribe(data => {
         this.toast.bookingEnded(this.room);
-        this.navCtrl.push(RoomPage, { room: this.room });
+        this.navCtrl.setRoot(RoomPage, { room: this.room });
       });
   }
 

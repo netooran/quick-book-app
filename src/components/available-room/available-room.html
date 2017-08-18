@@ -1,4 +1,7 @@
-<div>
-  <h1 (click)="showPreference()">{{room.name}}</h1>
-  <button ion-button round outline (click)="book()">Book</button>
-</div>
+<ion-content>
+  <div class="container" (swipe)="onSwipe()">
+    <div class=""></div>
+    <div class="heading" (click)="showPreference()">{{ room.name }}</div>
+    <div class="rocket shimmer" ><< swipe to book >></div>
+  </div>
+</ion-content>
