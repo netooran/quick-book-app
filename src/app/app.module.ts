@@ -20,8 +20,6 @@ import { BookedRoomComponent } from '../components/booked-room/booked-room';
 import { RoomProvider } from '../providers/room/room';
 import { ToastProvider } from '../providers/toast/toast';
 
-
-
 @NgModule({
   declarations: [
     MyApp,
@@ -35,9 +33,9 @@ import { ToastProvider } from '../providers/toast/toast';
   imports: [
     BrowserModule,
     HttpModule,
-    IonicModule.forRoot(MyApp),
     IonicStorageModule.forRoot(),
-    NgIdleKeepaliveModule.forRoot()
+    NgIdleKeepaliveModule.forRoot(),
+    IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [

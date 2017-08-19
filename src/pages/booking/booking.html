@@ -1,19 +1,25 @@
-<ion-content padding>
-  <h1> {{room.name}}</h1>
-  
-  <form (ngSubmit)="book()">
-    <ion-item>
+<ion-content>
+  <div class="page-bg"></div>
+  <div class="container center">
+    <div class="heading">
+      <span>Quick Book</span>
+      <h1> {{room.name}}</h1>
+    </div>
+
+    <form (ngSubmit)="book()">
       <ion-segment [(ngModel)]="booking.selectedDuration" color="primary" name="duration">
-        <ion-segment-button *ngFor="let duration of durations" value="{{duration}}">
+        <ion-segment-button class="app-segment-button" *ngFor="let duration of durations" value="{{duration}}">
           {{ duration }} min
         </ion-segment-button>
       </ion-segment>
-    </ion-item>
-
-    <ion-item>
-      <ion-input #empIdInput type="number" placeholder="Enter employee ID" [(ngModel)]="booking.employee" name='employeeId'></ion-input>
-    </ion-item>
-    <button ion-button type="submit" block>Book</button>
-  </form>
-
+      <ion-row>
+        <ion-col col-8>
+          <ion-input #empIdInput type="number" placeholder="Enter employee ID" [(ngModel)]="booking.employee" name='employeeId'></ion-input>
+        </ion-col>
+        <ion-col col-4>
+          <button ion-button type="submit" block>Book</button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
 </ion-content>
