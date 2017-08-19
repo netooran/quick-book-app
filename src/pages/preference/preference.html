@@ -1,21 +1,21 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>
-      Quick Book
-    </ion-title>
-  </ion-navbar>
-</ion-header>
+  <ion-header>
+    <ion-slides (ionSlideDidChange)="showRoomsOfSelectedOffice()" #slides>
+      <ion-slide *ngFor="let office of offices" (click)="getRooms(office)" [ngClass]="{'active' : isSelectedOffice(office) }">
+          <ion-card-header>
+            <div class="office">
+              {{ office }}
+            </div>
+          </ion-card-header>
+      </ion-slide>
+    </ion-slides>
+  </ion-header>
 
-<ion-content padding>
-  <ion-card *ngFor="let office of offices" (click)="getRooms(office)" [ngClass]="{'active' : isSelectedOffice(office) }">
-      <ion-card-header>
-          {{ office }}
-      </ion-card-header>
-  </ion-card>
-
-  <ion-list>
-    <button ion-item *ngFor="let room of rooms" (click)="onRoomSelected(room)" (press)="setDefaultRoom(room)">
-      {{ room.name }} <span *ngIf="isdefaultRoom(room)">  default</span>
-    </button>
-  </ion-list>
-</ion-content>
+  <ion-content >
+    <div class="blured">
+    </div>
+    <ion-list>
+      <button ion-item *ngFor="let room of rooms" (click)="onRoomSelected(room)" (press)="setDefaultRoom(room)">
+        {{ room.name }} <span *ngIf="isdefaultRoom(room)">  default</span>
+      </button>
+    </ion-list>
+  </ion-content>
