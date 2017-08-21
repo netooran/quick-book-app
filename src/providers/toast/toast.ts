@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
 
 import { ToastController } from 'ionic-angular';
@@ -19,7 +18,7 @@ export class ToastProvider {
   }
 
   presentToast(message) {
-    let toast = this.toastCtrl.create({
+    return this.toastCtrl.create({
       message,
       duration: 3000,
       position: 'bottom'
