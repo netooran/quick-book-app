@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import { SERVER_URL } from '../../config';
 
 @Injectable()
 export class RoomProvider {
@@ -8,7 +9,7 @@ export class RoomProvider {
   private baseUrl;
 
   constructor(public http: Http) {
-    this.baseUrl = 'http://192.168.0.4:4000';
+    this.baseUrl = `http://${SERVER_URL}:4000`;
   }
 
   getRooms(office) {
