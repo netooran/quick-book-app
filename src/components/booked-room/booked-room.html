@@ -2,7 +2,7 @@
   <div class="page-bg"></div>
   <div class="container" (swipe)="endMeeting()">
     <div id="roomName" (click)="showPreference()">{{ room.name }}</div>
-    <timer startTime="Sun, 21 Apr 2013 12:30:00 GMT" endTime="Fri, 18 Aug 2017 10:50:00 GMT"></timer>
+    <timer startTime="{{roomStatus.startTime}}" endTime="{{roomStatus.endTime}}" onEnd="updateRoomStatus" *ngIf="roomStatus"></timer>
     <swiper text="<< swipe to end >>" *ngIf="isQuickMeet()"></swiper>
   </div>
 </ion-content>
