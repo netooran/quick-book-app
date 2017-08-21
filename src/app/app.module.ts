@@ -16,6 +16,8 @@ import { BookingPage } from '../pages/booking/booking';
 
 import { AvailableRoomComponent } from '../components/available-room/available-room';
 import { BookedRoomComponent } from '../components/booked-room/booked-room';
+import { TimerComponent } from '../components/timer/timer';
+import { SwiperComponent } from '../components/swiper/swiper';
 
 import { RoomProvider } from '../providers/room/room';
 import { ToastProvider } from '../providers/toast/toast';
@@ -30,7 +32,9 @@ import { ToastProvider } from '../providers/toast/toast';
     RoomPage,
     BookingPage,
     AvailableRoomComponent,
-    BookedRoomComponent
+    BookedRoomComponent,
+    TimerComponent,
+    SwiperComponent
   ],
   imports: [
     BrowserModule,

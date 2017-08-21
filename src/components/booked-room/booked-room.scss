@@ -1,3 +1,46 @@
 booked-room {
+  font-family: 'Heiti SC';
 
+  .page-bg {
+    background: url("../assets/images/taj_mahal_red.png") center;
+    background-size: cover;
+    -webkit-filter: blur(5px);
+    filter: blur(5px);
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+  #roomName {
+    color: #F8FCFF;
+    opacity: 0.75;
+    text-align: center;
+    padding-top: 5vmin;
+    font-size: 15vmin;
+  }
+
+  timer {
+    margin: 0 auto;
+    width: 90vmin;
+    height: 90vmin;
+  }
+
+  swiper {
+    padding: 1em;
+    width: 100%;
+    margin: 2% auto;
+  }
+}
+
+ion-app.md [padding],
+ion-app.md [padding] .scroll-content {
+  padding: 0;
 }
