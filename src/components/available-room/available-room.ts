@@ -12,4 +12,9 @@ export class AvailableRoomComponent extends RoomPage {
   onSwipe() {
     this.nav.push(BookingPage, { room: this.room });
   }
+
+  getImage() {
+    return this.room && this.room.images && this.room.images.available_url;
+  }
+
 }

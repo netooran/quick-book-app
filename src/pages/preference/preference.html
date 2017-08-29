@@ -15,7 +15,7 @@
     </div>
     <ion-list>
       <button ion-item *ngFor="let room of rooms" (click)="onRoomSelected(room)" (press)="setDefaultRoom(room)">
-        {{ room.name }} <span *ngIf="isdefaultRoom(room)">  default</span>
+        {{ room.name }} <span *ngIf="isdefaultRoom(room)">  << </span>
       </button>
     </ion-list>
   </ion-content>

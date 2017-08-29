@@ -32,4 +32,8 @@ export class BookedRoomComponent extends RoomPage {
     return this.roomStatus && this.roomStatus.isQuickBookMeeting;
   }
 
+  getImage() {
+    return this.room && this.room.images && this.room.images.booked_url;
+  }
+
 }

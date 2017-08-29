@@ -12,8 +12,8 @@ page-preference {
   }
 
   ion-header {
-    margin: 40px 0;
-    height: 215px;
+    margin: 25px 0;
+    height: 200px;
   }
 
   .header-md::after {
@@ -21,7 +21,7 @@ page-preference {
   }
 
   ion-content {
-    background: url("../../assets/images/taj_mahal_yellow.png") center;
+    background: url("../../assets/images/preference.png") center;
     background-size: cover;
 
     .fixed-content {
@@ -29,7 +29,7 @@ page-preference {
     }
 
     .scroll-content {
-      top: 40px;
+      top: 25px;
       bottom: 40px;
       margin-top: 285px !important;
     }
@@ -37,7 +37,7 @@ page-preference {
 
   .list-md,
   ion-list {
-    margin: 0 100px;
+    margin: 0 60px;
 
     .item {
       text-align: center;
@@ -49,9 +49,10 @@ page-preference {
   position: fixed;
   left: 0;
   right: 0;
-  top: 360px;
-  bottom: 145px;
+  top: 340px;
+  bottom: 120px;
   background: #A3A34C;
+  opacity: .6;
   box-shadow: 0px 0px 50px 100px #A3A34C;
   margin: 0px 25%;
 }
@@ -67,8 +68,7 @@ page-preference {
   }
 
   .list-md > .item-block {
-    font-weight: normal;
-    font-size: 50px;
+    font-size: 8vw;
     background: none;
     &:first-child,
     &:last-child {
