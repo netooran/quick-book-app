@@ -10,6 +10,8 @@ export class TimerComponent {
 
   @Input() startTime;
   @Input() endTime;
+  @Input() emailId;
+  @Input() summary;
   private duration;
   private interval = 1000;
   private timer;
