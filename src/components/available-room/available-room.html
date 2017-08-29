@@ -1,5 +1,6 @@
 <ion-content>
-  <div class="container" (swipe)="onSwipe()" [ngStyle]="{'background-image': 'url(' + room.images.available_url + ')','background-size': 'cover','background-position': 'center'}">
+  <div class="page-bg" [ngStyle]="{'background-image': 'url(' + room.images.available_url + ')','background-size': 'cover','background-position': 'center'}"></div>
+  <div class="container" (swipe)="onSwipe()">
     <div class=""></div>
     <div class="heading" (click)="showPreference()">{{ room.name }}</div>
     <div class="rocket shimmer" ><< swipe to book >></div>

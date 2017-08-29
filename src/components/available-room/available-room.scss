@@ -1,9 +1,16 @@
 available-room {
-  .container {
+  font-family: 'Heiti SC';
+
+  .page-bg {
+    background-color: #00AA5B;
+    -webkit-filter: blur(5px);
+    filter: blur(3px);
+    position: fixed;
     width: 100%;
     height: 100%;
+    z-index: -1;
+    margin: -1px;
   }
-  font-family: 'Heiti SC';
 
   .container {
     display: flex;
@@ -11,6 +18,7 @@ available-room {
     justify-content: space-around;
     align-items: center;
     flex-wrap: wrap;
+    height: 100%;
   }
 
   .rocket {

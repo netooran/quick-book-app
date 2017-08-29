@@ -3,6 +3,7 @@ page-booking {
   text-align: center;
 
   .page-bg {
+    background-color: #00AA5B;
     -webkit-filter: blur(5px);
     filter: blur(3px);
     position: fixed;
@@ -17,7 +18,7 @@ page-booking {
     margin: 0;
 
     ion-input {
-      border: 1px solid rgba(220, 223, 226, .4);
+      border: 1px solid rgb(220, 223, 226);
       padding-left: 15px;
       color: white;
     }
@@ -25,6 +26,7 @@ page-booking {
     .button-md {
       margin: 0 0 0 4px;
       height: 100%;
+      background-color: rgba(255,0,0,.4);
     }
   }
 
@@ -48,11 +50,12 @@ page-booking {
 
     .segment-button.segment-activated {
       background-color: rgba(220, 223, 226, .4);
+      border: 1px solid white;
       color: white;
     }
 
     .segment-button {
-      border: 1px solid rgba(220, 223, 226, .4);
+      border: 1px solid white;
       color: white;
     }
   }

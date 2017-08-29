@@ -9,7 +9,7 @@ export class RoomProvider {
   private baseUrl;
 
   constructor(public http: Http) {
-    this.baseUrl = `http://${SERVER_URL}:4000`;
+    this.baseUrl = SERVER_URL
   }
 
   getRooms(office) {
@@ -28,7 +28,7 @@ export class RoomProvider {
     return this.http.post(`${this.baseUrl}/rooms/${room.name}/book`, formData);
   }
 
-  cancel(room) {
-    return this.http.post(`${this.baseUrl}/rooms/${room.name}/end`, {});
+  cancel(room, formData) {
+    return this.http.post(`${this.baseUrl}/rooms/${room.name}/end-quick-book-meeting`, formData);
   }
 }

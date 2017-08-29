@@ -17,8 +17,8 @@ export class BookingPage {
   public durations = [5, 10, 15, 30];
 
   public booking = {
-    selectedDuration: this.durations[0].toString(),
-    employee: ''
+    duration: this.durations[0].toString(),
+    employeeId: ''
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private roomProvider: RoomProvider, private toast: ToastProvider) {
