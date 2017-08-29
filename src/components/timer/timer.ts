@@ -10,35 +10,46 @@ export class TimerComponent {
 
   @Input() startTime;
   @Input() endTime;
+  @Input() emailId;
+  @Input() summary;
+  @Input() isQuickMeet;
   private duration;
   private interval = 1000;
   private timer;
   private timerString;
 
-  constructor(public events: Events){}
+  constructor(public events: Events) { }
 
-  runTimer(){
+  runTimer() {
     this.duration = moment.duration(moment(this.endTime).diff(moment(new Date())), 'milliseconds');
     this.timer = setInterval(() => this.updateTimer(), this.interval);
   }
 
-  ngOnInit(){
+  ngOnInit() {
     this.startTime = new Date(this.startTime);
     this.endTime = new Date(this.endTime);
     this.runTimer();
   }
 
-  endTimer(){
+  endTimer() {
     clearInterval(this.timer);
     this.events.publish('timer:ended');
   }
 
-  updateTimer(){
+  updateTimer() {
     this.duration = moment.duration(this.duration - this.interval, 'milliseconds');
-    if(this.duration.get('minutes') == 0 && this.duration.get('seconds') == 0) {
+    if (this.duration.get('minutes') == 0 && this.duration.get('seconds') == 0) {
       this.endTimer();
     }
     this.timerString = `${this.duration.get('hours')}h ${this.duration.get('minutes')}m ${this.duration.get('seconds')}s`
+  }
+
+  getMeetingName() {
+    return (this.isQuickMeet == 'true') ? this.summary.slice(0, -8) : this.summary;
+  }
+
+  getBookedBy() {
+    return (this.isQuickMeet == 'true') ? this.summary.slice(-5) : this.emailId;
   }
 
 }

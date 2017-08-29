@@ -19,12 +19,13 @@ export class BookedRoomComponent extends RoomPage {
   }
 
   endMeeting() {
-    this.roomProvider
-      .cancel(this.room, this.roomStatus)
-      .subscribe(data => {
-        this.toast.bookingEnded(this.room);
-        this.navCtrl.setRoot(RoomPage, { room: this.room });
-      });
+    if (this.isQuickMeet())
+      this.roomProvider
+        .cancel(this.room, this.roomStatus)
+        .subscribe(data => {
+          this.toast.bookingEnded(this.room);
+          this.navCtrl.setRoot(RoomPage, { room: this.room });
+        });
   }
 
   isQuickMeet() {

@@ -2,7 +2,7 @@
   <div class="page-bg" [ngStyle]="{'background-image': 'url(' + room.images.booked_url + ')','background-size': 'cover','background-position': 'center'}"></div>
   <div class="container" (swipe)="endMeeting()">
     <div id="roomName" (click)="showPreference()">{{ room.name }}</div>
-    <timer startTime="{{roomStatus.startTime}}" endTime="{{roomStatus.endTime}}" onEnd="updateRoomStatus" *ngIf="roomStatus"></timer>
+    <timer startTime="{{roomStatus.start}}" endTime="{{roomStatus.end}}" emailId="{{roomStatus.creator}}" isQuickMeet="{{isQuickMeet()}}" summary="{{roomStatus.summary}}" *ngIf="roomStatus"></timer>
     <swiper text="<< swipe to end >>" *ngIf="isQuickMeet()"></swiper>
   </div>
 </ion-content>

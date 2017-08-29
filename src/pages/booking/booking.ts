@@ -37,4 +37,8 @@ export class BookingPage {
         this.navCtrl.push(RoomPage, { room: this.room });
       });
   }
+
+  back(){
+    this.navCtrl.pop();
+  }
 }
