@@ -6,48 +6,37 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { HttpModule } from '@angular/http';
 import { IonicStorageModule } from '@ionic/storage';
 import { NgIdleKeepaliveModule } from '@ng-idle/keepalive';
+import { ComponentsModule } from '../components/components.module'
 
 import { MyApp } from './app.component';
 
-import { HomePage } from '../pages/home/home';
-import { PreferencePage } from '../pages/preference/preference';
-import { RoomPage } from '../pages/room/room';
-import { BookingPage } from '../pages/booking/booking';
-
-import { AvailableRoomComponent } from '../components/available-room/available-room';
-import { BookedRoomComponent } from '../components/booked-room/booked-room';
-import { TimerComponent } from '../components/timer/timer';
-import { SwiperComponent } from '../components/swiper/swiper';
+import { HomePageModule } from '../pages/home/home.module';
+import { PreferencePageModule } from '../pages/preference/preference.module';
+import { RoomPageModule } from '../pages/room/room.module';
+import { BookingPageModule } from '../pages/booking/booking.module';
 
 import { RoomProvider } from '../providers/room/room';
 import { ToastProvider } from '../providers/toast/toast';
 
 @NgModule({
   declarations: [
-    MyApp,
-    HomePage,
-    PreferencePage,
-    RoomPage,
-    BookingPage,
-    AvailableRoomComponent,
-    BookedRoomComponent,
-    TimerComponent,
-    SwiperComponent
+    MyApp
   ],
   imports: [
     BrowserModule,
     HttpModule,
     IonicStorageModule.forRoot(),
     NgIdleKeepaliveModule.forRoot(),
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HomePageModule,
+    PreferencePageModule,
+    RoomPageModule,
+    BookingPageModule,
+    ComponentsModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp,
-    HomePage,
-    PreferencePage,
-    RoomPage,
-    BookingPage
+    MyApp
   ],
   providers: [
     StatusBar,

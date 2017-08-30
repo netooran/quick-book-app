@@ -9,5 +9,8 @@ import { PreferencePage } from './preference';
   imports: [
     IonicPageModule.forChild(PreferencePage),
   ],
+  exports: [
+    PreferencePage
+  ]
 })
 export class PreferencePageModule {}
