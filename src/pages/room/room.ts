@@ -12,6 +12,7 @@ import { PreferencePage } from '../../pages/preference/preference';
 export class RoomPage {
   public room;
   public roomStatus;
+  private loader;
 
   constructor(public nav: NavController, public navParams: NavParams, public roomProvider: RoomProvider, public loadingCtrl: LoadingController) {
     this.room = navParams.get('room');
@@ -21,8 +22,16 @@ export class RoomPage {
     });
   }
 
-  ngOnInit() {
-    this.presentLoadingDefault();
+  ionViewWillEnter() {
+    this.loader = this.loadingCtrl.create({
+      content: 'please wait...',
+      cssClass: 'spinner',
+      duration: 1000
+    }).present();
+  }
+
+  ionViewDidLoad(){
+    this.loader && this.loader.dismiss();
   }
 
   isAvailable() {
@@ -37,15 +46,6 @@ export class RoomPage {
     return this.roomProvider
       .getRoomStatus(this.room)
       .subscribe((data) => this.roomStatus = data.json());
-  }
-
-  presentLoadingDefault() {
-    let loading = this.loadingCtrl.create({
-      content: 'please wait...',
-      duration: 5000
-    });
-
-    loading.present();
   }
 
 }
