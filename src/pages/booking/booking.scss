@@ -74,4 +74,15 @@ page-booking {
     right: 0;
     margin: auto;
   }
+
+  #submit {
+    height: 44px;
+    background-color: #58AE88;
+    border: 1px solid;
+  }
+
+  .text-input::-webkit-input-placeholder {
+    text-indent: 0;
+    color: #D3D3D3;
+  }
 }
