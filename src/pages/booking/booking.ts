@@ -37,7 +37,7 @@ export class BookingPage {
       .book(this.room, this.booking)
       .subscribe(data => {
         this.toast.booked(this.room)
-        this.navCtrl.push(RoomPage, { room: this.room });
+        this.navCtrl.setRoot(RoomPage, { room: this.room });
       });
   }
 

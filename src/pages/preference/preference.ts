@@ -32,7 +32,7 @@ export class PreferencePage {
     );
   }
 
-  showRoomsOfSelectedOffice (){
+  showRoomsOfSelectedOffice() {
     let currentIndex = this.slides.getActiveIndex();
     this.selectedOffice = this.offices[currentIndex];
     return this.getRooms();
@@ -50,12 +50,13 @@ export class PreferencePage {
   }
 
   onRoomSelected(room) {
-    this.navCtrl.push(RoomPage, { room: room });
+    this.navCtrl.setRoot(RoomPage, { room: room });
   }
 
   setDefaultRoom(room) {
-    this.storage.set('defaultRoom', room);
-    this.defaultRoom = room;
+    return this.storage.remove('defaultRoom')
+      .then(() => this.storage.set('defaultRoom', room)
+        .then(() => this.defaultRoom = room));
   }
 
   isdefaultRoom(room) {

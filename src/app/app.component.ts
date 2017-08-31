@@ -35,7 +35,9 @@ export class MyApp {
     this.idle.onTimeout.subscribe(() => {
       this.storage.get('defaultRoom')
         .then((room) => {
-          if (this.nav.first().data.room && this.nav.first().data.room.name == room.name)
+          if (!room)
+            return;
+          else if (this.nav.getActive().data.room && this.nav.getActive().data.room.name == room.name)
             return;
           this.nav.setRoot(RoomPage, { room: room });
         });

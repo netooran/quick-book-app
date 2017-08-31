@@ -39,7 +39,7 @@ export class RoomPage {
   }
 
   showPreference() {
-    this.nav.push(PreferencePage);
+    this.nav.setRoot(PreferencePage);
   }
 
   updateRoomStatus() {
