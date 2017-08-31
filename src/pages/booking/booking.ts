@@ -1,5 +1,6 @@
 import { Component, ViewChild } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import * as moment from 'moment';
 
 import { RoomProvider } from '../../providers/room/room';
 import { ToastProvider } from '../../providers/toast/toast';
@@ -14,15 +15,17 @@ export class BookingPage {
 
   @ViewChild('empIdInput') myInput;
   public room;
-  public durations = [5, 10, 15, 30];
+  public roomStatus;
+  public maxDuration = 30;
 
   public booking = {
-    duration: this.durations[0].toString(),
+    duration: 10,
     employeeId: ''
   };
 
   constructor(public navCtrl: NavController, public navParams: NavParams, private roomProvider: RoomProvider, private toast: ToastProvider) {
     this.room = navParams.get('room');
+    this.roomStatus = navParams.get('roomStatus');
   }
 
   ionViewDidEnter() {
@@ -38,7 +41,15 @@ export class BookingPage {
       });
   }
 
-  back(){
+  getMaxDuration() {
+    var roomStatus = this.roomStatus;
+    let duration = moment.duration(moment(roomStatus.start).diff(moment(new Date())), 'milliseconds').asMinutes();
+    let maxDuration = this.maxDuration < duration ? this.maxDuration : duration;
+    this.booking.duration = this.booking.duration < maxDuration ? this.booking.duration : maxDuration;
+    return maxDuration;
+  }
+
+  back() {
     this.navCtrl.pop();
   }
 }

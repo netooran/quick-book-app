@@ -85,4 +85,17 @@ page-booking {
     text-indent: 0;
     color: #D3D3D3;
   }
+
+  ion-range {
+    width: 100%;
+    color: #F8FCFF;
+  }
+
+  .close {
+    color: grey;
+    margin: 1.5em;
+    display: flex;
+    align-self: flex-start;
+    font-size: 1.5em;
+  }
 }

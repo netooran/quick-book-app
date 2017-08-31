@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { RoomPage} from '../../pages/room/room'
+import { RoomPage } from '../../pages/room/room'
 import { BookingPage } from '../../pages/booking/booking';
 
 @Component({
@@ -10,7 +10,7 @@ import { BookingPage } from '../../pages/booking/booking';
 export class AvailableRoomComponent extends RoomPage {
 
   onSwipe() {
-    this.nav.push(BookingPage, { room: this.room });
+    this.nav.push(BookingPage, { room: this.room, roomStatus: this.roomStatus });
   }
 
   getImage() {

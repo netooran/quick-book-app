@@ -1,5 +1,9 @@
 <ion-content>
-  <div class="page-bg" [ngStyle]="{'background-image': 'url(' + room.images.available_url + ')','background-size': 'cover','background-position': 'center'}"></div>
+
+  <div class="page-bg" [ngStyle]="{'background-image': 'url(' + room.images.available_url + ')','background-size': 'cover','background-position': 'center'}">
+
+  </div>
+  <ion-icon class="close" name="close" (click)="back()"></ion-icon>
   <div class="container center" (swipe)="back()">
     <div class="heading">
       <span>Quick Book</span>
@@ -7,12 +11,14 @@
     </div>
 
     <form (ngSubmit)="book()">
-      <ion-segment [(ngModel)]="booking.duration" color="primary" name="duration">
-        <ion-segment-button class="app-segment-button" *ngFor="let duration of durations" value="{{duration}}">
-          {{ duration }} min
-        </ion-segment-button>
-      </ion-segment>
-      <ion-row>
+      <ion-range [(ngModel)]="booking.duration" name="duration" min="0" max="{{getMaxDuration()}}" pin>
+        <ion-icon range-left margin>0 m</ion-icon>
+        <ion-icon range-right margin>{{ getMaxDuration() }} m</ion-icon>
+      </ion-range>
+      <ion-chip color="#b3e1b8">
+        <ion-label color="light">Duration selected: {{booking.duration}}</ion-label>
+      </ion-chip>
+      <ion-row margin-top>
         <ion-col col-8>
           <ion-input #empIdInput type="number" placeholder="Enter employee ID" [(ngModel)]="booking.employeeId" name='employeeId'></ion-input>
         </ion-col>
